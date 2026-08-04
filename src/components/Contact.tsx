@@ -1,54 +1,56 @@
 import { links } from "../data/content";
+import { SectionHeader } from "./SectionHeader";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20 lg:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-12 lg:px-10">
-        <div className="lg:col-span-5">
-          <h2 className="font-serif text-3xl tracking-tight text-ink lg:text-4xl">
-            Contact
-          </h2>
-          <p className="mt-4 text-sm text-muted">
-            Open to developer roles. Reach out directly.
-          </p>
-        </div>
+    <section id="contact" className="bg-dark py-24 text-stone-300 lg:py-32">
+      <div className="mx-auto max-w-[76rem] px-6 lg:px-12">
+        <SectionHeader
+          index="07"
+          title="Contact"
+          description="Open to frontend and full-stack developer roles."
+          dark
+        />
 
-        <ul className="space-y-4 lg:col-span-7">
-          <li>
-            <a
-              href={`mailto:${links.email}`}
-              className="text-[15px] text-ink underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-            >
-              {links.email}
-            </a>
-          </li>
-          <li>
-            <a
-              href={links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[15px] text-ink underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-            >
-              GitHub — Ashirwad2004
-            </a>
-          </li>
-          <li>
-            <a
-              href={links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[15px] text-ink underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-            >
-              LinkedIn — ashiwadjha2004
-            </a>
-          </li>
-        </ul>
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
+          <a
+            href={`mailto:${links.email}`}
+            className="link-arrow font-serif text-[clamp(1.5rem,4vw,2.75rem)] leading-tight tracking-tight text-white transition-colors hover:text-accent lg:col-span-8"
+          >
+            <span>{links.email}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm lg:col-span-4 lg:justify-end">
+            <li>
+              <a
+                href={links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-arrow text-dark-muted transition-colors hover:text-white"
+              >
+                <span>GitHub</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href={links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-arrow text-dark-muted transition-colors hover:text-white"
+              >
+                <span>LinkedIn</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <footer className="mx-auto mt-24 max-w-6xl border-t border-border px-6 pt-8 lg:px-10">
-        <p className="text-xs text-muted">
-          © {new Date().getFullYear()} Ashirwad Kumar Jha
-        </p>
+      <footer className="mx-auto mt-24 flex max-w-[76rem] items-center justify-between border-t border-dark-border px-6 pt-8 text-xs text-dark-muted lg:px-12">
+        <p>© {new Date().getFullYear()} Ashirwad Kumar Jha</p>
+        <p className="hidden sm:block">Built with React + TypeScript</p>
       </footer>
     </section>
   );

@@ -1,77 +1,169 @@
 export const links = {
   github: "https://github.com/Ashirwad2004",
   linkedin: "https://linkedin.com/in/ashiwadjha2004",
-  email: "ashirwad.jha2004@gmail.com",
+  email: "ashirwassatyam@gmail.com",
 } as const;
 
-export const projects = [
-  {
-    name: "LogiFlow",
-    problem:
-      "Warehouse teams lose time reconciling stock across zones with paper logs and spreadsheets.",
-    description:
-      "A warehouse management app for tracking inventory movement, zone assignments, and stock levels in one place.",
-    stack: "React, TypeScript, Python, FastAPI",
-    detail: "Role-based views for floor staff and supervisors",
-    href: "#",
-  },
-  {
-    name: "RupeeBill",
-    problem:
-      "Small businesses juggle separate tools for invoicing, GST filing, and customer notifications.",
-    description:
-      "SaaS billing platform with GSTR-1 filing, Supabase-backed auth, and WhatsApp order alerts through Meta's Cloud API.",
-    stack: "React, FastAPI, Supabase",
-    detail: "GST-compliant GSTR-1 export and real-time WhatsApp notifications",
-    href: "#",
-  },
-  {
-    name: "FinFlow",
-    problem:
-      "Teams need a single view of cash movement — not scattered bank exports and manual spreadsheets.",
-    description:
-      "Cash-flow tracker for inflows, outflows, and recurring expenses with category-level breakdowns.",
-    stack: "React, TypeScript, Supabase",
-    detail: "Recurring expense tracking with category breakdowns",
-    href: "#",
-  },
+export const hero = {
+  headline:
+    "Frontend Developer building production-grade, AI-integrated web apps",
+  subheadline:
+    "1+ year shipping fintech and SaaS UI with React, Next.js, and TypeScript — from B2B accounting dashboards used by 1M+ businesses to an AI-powered finance tracker that reads receipts and answers cash-flow questions in plain English.",
+} as const;
+
+export const about = [
+  "I'm a frontend developer based in Bangalore, working mainly in React, Next.js, and TypeScript, with backend range in Python (FastAPI, Django, Flask) when a project needs it.",
+  "Over the past year I've worked inside fintech and SaaS teams — cutting user-reported errors 25% at Vyapar, building a component library that saved the team 30% of dev time at Podtech, and shipping real-time analytics dashboards at 1Stop AI.",
+  "Outside client work, I built FinFlow, a full-stack finance tracker that uses Gemini to read receipts and answer accounting questions in natural language.",
 ] as const;
+
+export const featuredProject = {
+  name: "FinFlow",
+  subtitle: "AI-Powered Business Finance Tracker",
+  description:
+    "A full-stack virtual accountant covering expense tracking, debt management, sales ledger, inventory, purchase orders, and invoices in one platform.",
+  features: [
+    {
+      title: "AI Chat Accountant",
+      description:
+        "Gemini 2.5 Flash answers cash-flow questions and forecasts using live financial context, in natural language",
+    },
+    {
+      title: "Smart Fill",
+      description:
+        'Parses input like "₹1200 electricity bill" straight into structured expense fields, no manual entry',
+    },
+    {
+      title: "Magic Add",
+      description:
+        'Splits compound entries ("spent ₹400 on cab, Rahul owes ₹500") into multiple dated transactions in one step',
+    },
+    {
+      title: "Bill Scanner",
+      description:
+        "Gemini Vision OCR pulls merchant, total, date, and category from a photographed receipt",
+    },
+  ],
+  stack:
+    "React, TypeScript, TailwindCSS, ShadCN UI, Supabase, Gemini 2.5 Flash",
+  href: "https://finflow.vercel.app/",
+} as const;
+
+export const secondaryProject = {
+  name: "LogiFlow",
+  problem:
+    "Warehouse teams lose time reconciling stock across zones with paper logs and spreadsheets.",
+  description:
+    "Warehouse management app for tracking inventory movement, zone assignments, and stock levels — React/TypeScript frontend with a Python FastAPI backend.",
+  stack: "React, TypeScript, Python, FastAPI",
+  detail: "Role-based views for floor staff and supervisors",
+  href: "#",
+} as const;
 
 export const experience = [
   {
     company: "Vyapar",
-    role: "Frontend Intern",
-    period: "2024",
-    description:
-      "Built UI for merchant-facing features on Vyapar's billing platform.",
+    role: "Frontend Developer Intern",
+    period: "Dec 2025 – Mar 2026",
+    bullets: [
+      "Fixed critical UI bugs and improved form-validation logic on Vyapar's B2B accounting platform (1M+ SMB users), cutting user-reported errors 25% in 2 months",
+      "Built internal Next.js admin dashboards that replaced manual onboarding and config processes",
+    ],
   },
   {
     company: "Podtech",
-    role: "Developer Intern",
-    period: "2024",
-    description:
-      "Developed client web features and integrated external APIs.",
+    role: "Frontend Developer Intern",
+    period: "Apr – Jun 2025",
+    bullets: [
+      "Built a reusable component library in TypeScript + TailwindCSS, cutting team dev time 30%",
+      "Implemented Redux Toolkit across multi-step workflows, eliminating race conditions",
+    ],
   },
   {
     company: "1Stop AI",
-    role: "Intern",
-    period: "2025",
-    description:
-      "Worked on web interfaces for AI workflow and automation tools.",
+    role: "Frontend Developer",
+    period: "Jan – Mar 2025",
+    bullets: [
+      "Built responsive React interfaces for AI-powered SaaS products",
+      "Integrated REST APIs and WebSocket streams for sub-second live updates; improved Lighthouse scores via code-splitting, lazy loading, and tree-shaking",
+    ],
   },
 ] as const;
 
 export const skillGroups = [
   {
+    label: "Languages",
+    items: [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Python",
+      "SQL",
+      "HTML5",
+      "CSS3",
+    ],
+  },
+  {
     label: "Frontend",
-    items: ["React", "TypeScript"],
+    items: [
+      "React.js",
+      "Next.js",
+      "TailwindCSS",
+      "ShadCN UI",
+      "Redux Toolkit",
+      "Zustand",
+    ],
   },
   {
     label: "Backend",
-    items: ["Python", "FastAPI", "Supabase"],
+    items: ["Node.js", "Django", "Flask", "FastAPI"],
   },
   {
-    label: "Automation & Tools",
-    items: ["n8n", "Git", "GitHub"],
+    label: "Data & Realtime",
+    items: [
+      "PostgreSQL",
+      "MongoDB",
+      "Supabase",
+      "REST",
+      "WebSocket",
+      "GraphQL (basic)",
+    ],
+  },
+  {
+    label: "Data Viz",
+    items: ["Recharts", "Chart.js", "D3.js"],
+  },
+  {
+    label: "AI / LLM",
+    items: [
+      "Gemini API (Vision + Text)",
+      "Prompt engineering",
+      "NLP feature development",
+    ],
   },
 ] as const;
+
+export const achievements = [
+  {
+    title: "HackAIthon Winner",
+    period: "Aug 2023",
+    description:
+      "Led a 4-person team building an eye-tracking mouse interface, beating 30+ teams in a 30-hour hackathon",
+  },
+  {
+    title: "5th place, NIT Bhopal",
+    period: "National hackathon",
+    description: "100+ teams",
+  },
+  {
+    title: "KLIC Incubation Center bootcamp",
+    period: "Mentor",
+    description:
+      "Mentored first-year students in web fundamentals (HTML/CSS/JS)",
+  },
+] as const;
+
+export const education = {
+  degree: "B.Tech, Computer Science",
+  school: "Veltech University, Chennai",
+  period: "2021–2025",
+} as const;

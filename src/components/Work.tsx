@@ -1,29 +1,25 @@
-import { projects } from "../data/content";
+import { secondaryProject } from "../data/content";
+import { FeaturedProject } from "./FeaturedProject";
 import { ProjectCard } from "./ProjectCard";
+import { SectionHeader } from "./SectionHeader";
 
 export function Work() {
-  const [first, second, third] = projects;
-
   return (
-    <section id="work" className="border-b border-border py-20 lg:py-28">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div className="mb-12 flex flex-col gap-4 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="font-serif text-3xl tracking-tight text-ink lg:text-4xl">
-            Selected work
-          </h2>
-          <p className="max-w-sm text-sm text-muted lg:text-right">
-            Three products I've built end to end — frontend, backend, and
-            deployment.
-          </p>
-        </div>
+    <section id="work" className="py-24 lg:py-32">
+      <div className="mx-auto max-w-[76rem] px-6 lg:px-12">
+        <SectionHeader
+          index="01"
+          title="Selected work"
+          description="Production apps shipped end to end — UI, backend integration, and deployment."
+        />
 
-        <div className="grid gap-4 lg:grid-cols-12 lg:gap-5">
-          <ProjectCard {...first} className="lg:col-span-7" />
-          <ProjectCard {...second} className="lg:col-span-5" />
+        <div className="grid gap-5 lg:grid-cols-12">
+          <div className="lg:col-span-12">
+            <FeaturedProject />
+          </div>
           <ProjectCard
-            {...third}
-            layout="horizontal"
-            className="lg:col-span-12"
+            {...secondaryProject}
+            className="lg:col-span-6 lg:col-start-7"
           />
         </div>
       </div>

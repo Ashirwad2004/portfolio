@@ -3,11 +3,14 @@
 @theme {
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
-  --color-surface: #f7f5f0;
-  --color-ink: #1c1917;
-  --color-muted: #78716c;
-  --color-border: #e7e5e0;
-  --color-accent: #9a3412;
+  --color-surface: #fafaf9;
+  --color-ink: #0c0a09;
+  --color-muted: #57534e;
+  --color-border: #d6d3d1;
+  --color-accent: #c2410c;
+  --color-dark: #0c0a09;
+  --color-dark-muted: #a8a29e;
+  --color-dark-border: #292524;
 }
 
 html {
@@ -24,5 +27,24 @@ body {
 }
 
 ::selection {
-  background-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  background-color: color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: gap 200ms ease;
+}
+
+.link-arrow:hover {
+  gap: 0.625rem;
+}
+
+.link-arrow span:last-child {
+  transition: transform 200ms ease;
+}
+
+.link-arrow:hover span:last-child {
+  transform: translateX(2px);
 }
