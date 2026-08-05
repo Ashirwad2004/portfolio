@@ -20,6 +20,7 @@ import { ResumeModal } from "./components/ResumeModal";
 import { GitHubSection } from "./components/GitHubSection";
 import { Blog } from "./components/Blog";
 import { Testimonials } from "./components/Testimonials";
+import { InteractiveBackground } from "./components/InteractiveBackground";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -57,6 +58,9 @@ function App() {
       {!isLoading && (
         <div className="relative bg-dark-bg min-h-screen text-zinc-100 selection:bg-accent/30 selection:text-white">
           
+          {/* Interactive warp mesh background canvas */}
+          <InteractiveBackground />
+
           {/* Subtle noise grid texture overlay */}
           <div className="noise-overlay" />
 

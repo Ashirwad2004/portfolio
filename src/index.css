@@ -32,15 +32,15 @@
   --color-accent-hover: rgba(var(--accent-rgb), 0.8);
   --color-accent-glow: rgba(var(--accent-rgb), 0.15);
   
-  --color-dark-bg: #090b11;
-  --color-dark-card: rgba(13, 17, 30, 0.65);
-  --color-dark-border: rgba(75, 85, 120, 0.3);
-  --color-dark-muted: #888ea8;
+  --color-dark-bg: #05050a;
+  --color-dark-card: rgba(10, 10, 15, 0.45);
+  --color-dark-border: rgba(99, 102, 241, 0.12);
+  --color-dark-muted: #8e92ad;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #07090e;
+  background-color: #05050a;
   color: #f4f4f5;
   overflow-x: hidden;
 }
@@ -48,7 +48,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: radial-gradient(120% 120% at 50% 0%, #0d111d 0%, #07090e 65%, #0e1220 100%);
+  background-color: #05050a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;

@@ -210,7 +210,7 @@ export function Hero() {
             >
               Ashirwad Jha
               <span className="block mt-2 bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent font-sans text-[clamp(1.5rem,3.5vw,2.5rem)] font-light tracking-wide">
-                Senior Frontend Developer
+                Frontend Developer
               </span>
             </motion.h1>
 
