@@ -32,15 +32,15 @@
   --color-accent-hover: rgba(var(--accent-rgb), 0.8);
   --color-accent-glow: rgba(var(--accent-rgb), 0.15);
   
-  --color-dark-bg: #030303;
-  --color-dark-card: rgba(10, 10, 12, 0.7);
-  --color-dark-border: rgba(63, 63, 70, 0.35);
-  --color-dark-muted: #71717a;
+  --color-dark-bg: #090b11;
+  --color-dark-card: rgba(13, 17, 30, 0.65);
+  --color-dark-border: rgba(75, 85, 120, 0.3);
+  --color-dark-muted: #888ea8;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-dark-bg);
+  background-color: #07090e;
   color: #f4f4f5;
   overflow-x: hidden;
 }
@@ -48,7 +48,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background-color: var(--color-dark-bg);
+  background: radial-gradient(120% 120% at 50% 0%, #0d111d 0%, #07090e 65%, #0e1220 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -130,7 +130,7 @@ html.lenis body {
 .aurora-blob {
   position: absolute;
   filter: blur(120px);
-  opacity: 0.18;
+  opacity: 0.28;
   border-radius: 50%;
   mix-blend-mode: screen;
   animation: float-blob 20s infinite alternate ease-in-out;

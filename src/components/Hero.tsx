@@ -165,7 +165,7 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden bg-black pt-32 pb-24 text-zinc-300 min-h-[95svh] flex items-center spotlight-card"
+      className="relative overflow-hidden bg-transparent pt-32 pb-24 text-zinc-300 min-h-[95svh] flex items-center spotlight-card"
     >
       {/* Background Canvas Particles */}
       <canvas

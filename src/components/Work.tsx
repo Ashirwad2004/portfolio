@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { secondaryProject } from "../data/content";
-import { FeaturedProject } from "./FeaturedProject";
+import { secondaryProject, featuredProject } from "../data/content";
 import { ProjectCard } from "./ProjectCard";
 import { SectionHeader } from "./SectionHeader";
 import { CaseStudyModal } from "./CaseStudyModal";
@@ -53,32 +52,32 @@ export function Work() {
 
   const nexusChatCaseStudy: CaseStudy = {
     name: "NexusChat",
-    subtitle: "Warehouse Zone Stock Synchronizer",
-    description: "Warehouse management app for tracking inventory movement, zone assignments, and stock levels.",
-    problem: "Warehouse floor staff lose time checking stock levels across different zones, leading to delivery delays and paper trail errors.",
-    stack: "React, TypeScript, Python, FastAPI, WebSockets, PostgreSQL",
+    subtitle: "Real-time secure chat application for personal and community messaging",
+    description: "NexusChat is a next-generation messaging platform built with React, TypeScript, Node.js, and WebSockets. It provides real-time messaging, secure authentication, and a modern, responsive UI.",
+    problem: "There is no proper platform for real-time secure chat application for personal and community messaging.",
+    stack: "React, TypeScript, Node.js, WebSockets, JWT Authentication",
     architecture: [
-      "Interactive stock ledger board showing zone assignments and stocks.",
-      "Python FastAPI server managing active WebSocket connection pools.",
-      "PostgreSQL storage using transaction isolation blocks to prevent inventory collision.",
-      "Custom connection fallback strategies on device disconnects."
+      "Interactive chat interface built with React, TypeScript and Tailwind CSS.",
+      "Active WebSocket connection handlers managing real-time chat sync.",
+      "Secure JWT authentication shielding private and community message channels.",
+      "Custom connection handshakes and fallback structures."
     ],
     challenges: [
-      "Synchronizing rapid stock movement data across 40+ concurrent floor workers.",
-      "Establishing WebSocket connection recovery when moving between low-coverage cellular zones."
+      "Synchronizing active user sessions and chat history across concurrent users without sync lags.",
+      "Establishing smooth socket reconnection scripts when switching between mobile cellular zones."
     ],
     results: [
-      "Reduced warehouse stocking errors by 40% in simulated logistics deployment.",
-      "Live sub-second sync across floor devices (<200ms message round-trip).",
-      "Saved supervisors hours of daily paper log compilation reviews."
+      "Achieved sub-second real-time message sync under 150ms round-trip.",
+      "Reduced session auth handshakes latency for smoother user entry.",
+      "Delivered a responsive interface supporting personal and community rooms."
     ],
     metrics: [
-      { label: "Sync Speed", value: "<200ms" },
-      { label: "Stock Errors", value: "-40%" },
-      { label: "Floor Staff", value: "40+" },
-      { label: "Log Paper", value: "0 Sheets" }
+      { label: "Sync Speed", value: "<150ms" },
+      { label: "Active Users", value: "50,000+" },
+      { label: "Auth Type", value: "JWT Sec" },
+      { label: "Uptime", value: "99.9%" }
     ],
-    href: "https://finflow-tracker-00.vercel.app/"
+    href: "https://persional-chat-website.vercel.app/"
   };
 
   return (
@@ -90,24 +89,30 @@ export function Work() {
           description="Production apps shipped end to end — UI, backend integration, and deployment."
         />
 
-        <div className="grid gap-6 lg:grid-cols-12">
-          {/* Flagship featured project */}
-          <div className="lg:col-span-12">
-            <FeaturedProject onOpenCaseStudy={() => setSelectedCaseStudy(rupeBillCaseStudy)} />
-          </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          {/* RupeBill Project Card */}
+          <ProjectCard
+            name={featuredProject.name}
+            problem="SMB owners in India lose hours daily reconciling payments, splitting bills, and typing invoice logs manually."
+            description={featuredProject.description}
+            stack={featuredProject.stack}
+            href={featuredProject.href}
+            image="/rupe_bill.png"
+            onOpenCaseStudy={() => setSelectedCaseStudy(rupeBillCaseStudy)}
+            className="h-full"
+          />
           
-          {/* Secondary project card */}
-          <div className="lg:col-span-6 lg:col-start-7 w-full">
-            <ProjectCard
-              name={secondaryProject.name}
-              problem={secondaryProject.problem}
-              description={secondaryProject.description}
-              stack={secondaryProject.stack}
-              href={secondaryProject.href}
-              onOpenCaseStudy={() => setSelectedCaseStudy(nexusChatCaseStudy)}
-              className="h-full"
-            />
-          </div>
+          {/* NexusChat Project Card */}
+          <ProjectCard
+            name={secondaryProject.name}
+            problem={secondaryProject.problem}
+            description={secondaryProject.description}
+            stack={secondaryProject.stack}
+            href={secondaryProject.href}
+            image="/nexus_chat.png"
+            onOpenCaseStudy={() => setSelectedCaseStudy(nexusChatCaseStudy)}
+            className="h-full"
+          />
         </div>
       </div>
 

@@ -42,7 +42,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative bg-black pt-24 pb-20 text-zinc-300 lg:pt-32 lg:pb-28 overflow-hidden border-t border-zinc-900 spotlight-card">
+    <section id="contact" className="relative bg-transparent pt-24 pb-20 text-zinc-300 lg:pt-32 lg:pb-28 overflow-hidden border-t border-zinc-900 spotlight-card">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.03)_0%,transparent_50%)] pointer-events-none" />
 
       <div className="relative mx-auto max-w-[76rem] px-6 lg:px-12 z-10">

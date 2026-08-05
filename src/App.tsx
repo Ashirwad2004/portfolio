@@ -55,7 +55,7 @@ function App() {
       <LoadingScreen onComplete={() => setIsLoading(false)} />
 
       {!isLoading && (
-        <div className="relative bg-black min-h-screen text-zinc-100 selection:bg-accent/30 selection:text-white">
+        <div className="relative bg-dark-bg min-h-screen text-zinc-100 selection:bg-accent/30 selection:text-white">
           
           {/* Subtle noise grid texture overlay */}
           <div className="noise-overlay" />

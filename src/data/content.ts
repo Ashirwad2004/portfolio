@@ -55,13 +55,27 @@ export const featuredProject = {
 //second project details 
 export const secondaryProject = {
   name: "NexusChat",
-  problem:
-    "Warehouse teams lose time reconciling stock across zones with paper logs and spreadsheets.",
-  description:
-    "Warehouse management app for tracking inventory movement, zone assignments, and stock levels — React/TypeScript frontend with a Python FastAPI backend.",
-  stack: "React, TypeScript, Python, FastAPI",
+  problem: "There is no proper platform for real-time secure chat application for personal and community messaging",
+  features: [
+    {
+      title: "Real-time Messaging",
+      description: "Real-time messaging using WebSockets and Node.js.",
+    },
+    {
+      title: "Secure Authentication",
+      description: "Secure authentication using JWT authentication.",
+    },
+    {
+      title: "Modern UI",
+      description: "Modern, responsive UI for both personal and community conversations.",
+    },
+  ],
+  subtitle: "Real-time secure chat application for personal and community messaging",
+  description: 
+    "NexusChat is a next-generation messaging platform built with React, TypeScript, Node.js, and WebSockets. It provides real-time messaging, secure authentication, and a modern, responsive UI for both personal and community conversations.",
+  stack: "React, TypeScript, Node.js, WebSockets, JWT Authentication",
   detail: "Role-based views for floor staff and supervisors",
-  href: "https://finflow-tracker-00.vercel.app/",
+  href: "https://persional-chat-website.vercel.app/",
 } as const;
 
 export const experience = [

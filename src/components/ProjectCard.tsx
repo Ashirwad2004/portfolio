@@ -8,6 +8,7 @@ type ProjectCardProps = {
   stack: string;
   href: string;
   className?: string;
+  image?: string;
   onOpenCaseStudy: () => void;
 };
 
@@ -26,6 +27,7 @@ export function ProjectCard({
   stack,
   href,
   className = "",
+  image,
   onOpenCaseStudy,
 }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -58,6 +60,15 @@ export function ProjectCard({
       className={`group flex flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-950/40 p-6 md:p-8 spotlight-card glass-card glass-card-hover ${className}`}
     >
       <div>
+        {image && (
+          <div className="relative mb-6 overflow-hidden rounded-lg border border-zinc-900 bg-zinc-950 aspect-[16/10] flex items-center justify-center">
+            <img 
+              src={image} 
+              alt={`${name} Screenshot`} 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+            />
+          </div>
+        )}
         <div className="flex items-center justify-between">
           <span className="rounded-full bg-zinc-900 border border-zinc-800 px-2.5 py-0.5 text-[9px] font-mono text-zinc-400 uppercase">
             Secondary Project
@@ -108,7 +119,7 @@ export function ProjectCard({
             rel="noopener noreferrer"
             className="flex items-center gap-1 font-semibold text-white hover:text-accent transition-colors clickable-element"
           >
-            <span>Launch demo</span>
+            <span>Live App</span>
             <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>
