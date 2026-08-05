@@ -78,6 +78,52 @@ export const secondaryProject = {
   href: "https://persional-chat-website.vercel.app/",
 } as const;
 
+export const logiFlowProject = {
+  name: "LogiFlow",
+  problem: "Manual fleet logs and delayed hub capacity synchronizations result in supply chain inefficiencies and delivery drops.",
+  features: [
+    {
+      title: "Real-time Fleet Tracking",
+      description: "Live tracking of transit trucks and routes with sub-second WebSocket updates."
+    },
+    {
+      title: "Capacity Analytics Dashboard",
+      description: "Visual charts charting hub occupancies and bottlenecks dynamically."
+    },
+    {
+      title: "Redis Queue Alerting",
+      description: "Instant dispatch push notifications backed by robust queue channels."
+    }
+  ],
+  subtitle: "Enterprise Logistics & Fleet Capacity Management System",
+  description: "LogiFlow is a high-throughput logistics tracker optimizing delivery networks, vehicle routes, and hub capacity analytics dynamically.",
+  stack: "Next.js, Tailwind CSS, TypeScript, FastAPI, Redis, PostgreSQL",
+  href: "https://logiflow-tracker.vercel.app/"
+} as const;
+
+export const bankBiProject = {
+  name: "BankBI",
+  problem: "Financial officers lose days reconciling transaction sheets and ledger data dumps into compliance reports manually.",
+  features: [
+    {
+      title: "Ledger Parsing Engine",
+      description: "Ingests database dumps and maps financial items into structured balance sheets instantly."
+    },
+    {
+      title: "Banking KPI Charts",
+      description: "Displays real-time liquidity indicators and loan-to-deposit margin trends."
+    },
+    {
+      title: "Compliance Report Generator",
+      description: "Generates exportable compliance auditing drafts with zero thread blocking."
+    }
+  ],
+  subtitle: "Automated Banking Intelligence & Compliance Ledger BI System",
+  description: "BankBI is a business intelligence dashboard transforming core banking ledger logs into structured cashflow indicators, risk metrics, and compliance spreadsheets.",
+  stack: "React, TypeScript, Redux Toolkit, Django REST Framework, PostgreSQL",
+  href: "https://bank-bi-dashboard.vercel.app/"
+} as const;
+
 export const experience = [
   {
     company: "Vyapar",

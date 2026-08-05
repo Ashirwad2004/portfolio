@@ -6,7 +6,8 @@ type ProjectCardProps = {
   problem: string;
   description: string;
   stack: string;
-  href: string;
+  href?: string;
+  gitHref?: string;
   className?: string;
   image?: string;
   onOpenCaseStudy: () => void;
@@ -26,6 +27,7 @@ export function ProjectCard({
   description,
   stack,
   href,
+  gitHref,
   className = "",
   image,
   onOpenCaseStudy,
@@ -71,9 +73,19 @@ export function ProjectCard({
         )}
         <div className="flex items-center justify-between">
           <span className="rounded-full bg-zinc-900 border border-zinc-800 px-2.5 py-0.5 text-[9px] font-mono text-zinc-400 uppercase">
-            Secondary Project
+             Project
           </span>
-          <GithubIcon className="h-4 w-4 text-zinc-600" />
+          {gitHref && (
+            <a 
+              href={gitHref} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-zinc-650 hover:text-white transition-colors clickable-element"
+              title="View GitHub Repository"
+            >
+              <GithubIcon className="h-4 w-4" />
+            </a>
+          )}
         </div>
 
         <h3 className="mt-4 font-serif text-2xl font-bold tracking-tight text-white">
@@ -113,15 +125,29 @@ export function ProjectCard({
             <span>Read Case Study</span>
           </button>
           
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 font-semibold text-white hover:text-accent transition-colors clickable-element"
-          >
-            <span>Live App</span>
-            <ExternalLink className="h-3.5 w-3.5" />
-          </a>
+          {href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 font-semibold text-white hover:text-accent transition-colors clickable-element"
+            >
+              <span>Live App</span>
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          ) : (
+            gitHref && (
+              <a
+                href={gitHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 font-semibold text-white hover:text-accent transition-colors clickable-element"
+              >
+                <span>GitHub Repo</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )
+          )}
         </div>
       </div>
     </article>
