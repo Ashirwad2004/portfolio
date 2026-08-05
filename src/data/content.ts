@@ -2,6 +2,8 @@ export const links = {
   github: "https://github.com/Ashirwad2004",
   linkedin: "https://linkedin.com/in/ashiwadjha2004",
   email: "ashirwassatyam@gmail.com",
+  resume: ""
+
 } as const;
 
 export const hero = {
@@ -18,7 +20,7 @@ export const about = [
 ] as const;
 
 export const featuredProject = {
-  name: "FinFlow",
+  name: "RupeBill",
   subtitle: "AI-Powered Business Finance Tracker",
   description:
     "A full-stack virtual accountant covering expense tracking, debt management, sales ledger, inventory, purchase orders, and invoices in one platform.",
@@ -46,18 +48,20 @@ export const featuredProject = {
   ],
   stack:
     "React, TypeScript, TailwindCSS, ShadCN UI, Supabase, Gemini 2.5 Flash",
-  href: "https://finflow.vercel.app/",
+
+  href: "https://finflow-tracker-00.vercel.app/",
 } as const;
 
+//second project details 
 export const secondaryProject = {
-  name: "LogiFlow",
+  name: "NexusChat",
   problem:
     "Warehouse teams lose time reconciling stock across zones with paper logs and spreadsheets.",
   description:
     "Warehouse management app for tracking inventory movement, zone assignments, and stock levels — React/TypeScript frontend with a Python FastAPI backend.",
   stack: "React, TypeScript, Python, FastAPI",
   detail: "Role-based views for floor staff and supervisors",
-  href: "#",
+  href: "https://finflow-tracker-00.vercel.app/",
 } as const;
 
 export const experience = [
