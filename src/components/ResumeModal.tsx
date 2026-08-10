@@ -80,7 +80,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               <div className="space-y-2">
                 <h3 className="text-xs uppercase font-bold tracking-wider text-accent print:text-black">Professional Summary</h3>
                 <p className="text-xs leading-relaxed text-zinc-400 print:text-black">
-                  Frontend engineer with 1+ year experience shipping high-fidelity UI dashboards and scalable component libraries. Proficient in React, TypeScript, Next.js, and FastAPI. Specializes in receipt-scanning OCR models, AI accounting interfaces, and state-management optimizations.
+                  Fullstack engineer with 1+ year experience shipping high-fidelity UI dashboards and scalable component libraries. Proficient in React, TypeScript, Next.js, and FastAPI. Specializes in receipt-scanning OCR models, AI accounting interfaces, and state-management optimizations.
                 </p>
               </div>
 

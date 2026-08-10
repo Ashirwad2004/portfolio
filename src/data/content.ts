@@ -8,13 +8,13 @@ export const links = {
 
 export const hero = {
   headline:
-    "Frontend Developer building production-grade, AI-integrated web apps",
+    "Fullstack Developer building production-grade, AI-integrated web apps",
   subheadline:
-    "1+ year shipping fintech and SaaS UI with React, Next.js, and TypeScript — from B2B accounting dashboards used by 1M+ businesses to an AI-powered finance tracker that reads receipts and answers cash-flow questions in plain English.",
+    "1+ year shipping fullstack applications with React, Next.js, and TypeScript — from B2B accounting dashboards used by 1M+ businesses to an AI-powered finance tracker that reads receipts and answers cash-flow questions in plain English.",
 } as const;
 
 export const about = [
-  "I'm a frontend developer based in Bangalore, working mainly in React, Next.js, and TypeScript, with backend range in Python (FastAPI, Django, Flask) when a project needs it.",
+  "I'm a fullstack developer based in Bangalore, working mainly in React, Next.js, and TypeScript, with backend range in Python (FastAPI, Django, Flask) when a project needs it.",
   "Over the past year I've worked inside fintech and SaaS teams — cutting user-reported errors 25% at Vyapar, building a component library that saved the team 30% of dev time at Podtech, and shipping real-time analytics dashboards at 1Stop AI.",
   "Outside client work, I built FinFlow, a full-stack finance tracker that uses Gemini to read receipts and answer accounting questions in natural language.",
 ] as const;
