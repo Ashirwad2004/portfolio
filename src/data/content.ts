@@ -127,7 +127,7 @@ export const bankBiProject = {
 export const experience = [
   {
     company: "Vyapar",
-    role: "Frontend Developer Intern",
+    role: "Full Stack Developer Intern",
     period: "Dec 2025 – Mar 2026",
     bullets: [
       "Fixed critical UI bugs and improved form-validation logic on Vyapar's B2B accounting platform (1M+ SMB users), cutting user-reported errors 25% in 2 months",
@@ -136,7 +136,7 @@ export const experience = [
   },
   {
     company: "Podtech",
-    role: "Frontend Developer Intern",
+    role: "Full Stack Developer Intern",
     period: "Apr – Jun 2025",
     bullets: [
       "Built a reusable component library in TypeScript + TailwindCSS, cutting team dev time 30%",
@@ -145,7 +145,7 @@ export const experience = [
   },
   {
     company: "1Stop AI",
-    role: "Frontend Developer",
+    role: "Full Stack Developer AI Engineer",
     period: "Jan – Mar 2025",
     bullets: [
       "Built responsive React interfaces for AI-powered SaaS products",

@@ -53,7 +53,7 @@ export function EasterEgg({ isOpen, onClose }: EasterEggProps) {
     } else if (cmd === "about") {
       newHistory.push(
         { text: "Loading profile data...", type: "output" },
-        { text: "Ashirwad Kumar Jha — Frontend Developer based in Bangalore.", type: "success" },
+        { text: "Ashirwad Kumar Jha — Full Stack Developer AI Engineer based in Bangalore.", type: "success" },
         { text: "Specialized in building high-fidelity React dashboard platforms.", type: "output" },
         { text: "Has saved 30% dev times building custom component frameworks.", type: "output" },
         { text: "Current Status: Building AI financial agents and receipt scanner apps.", type: "output" }

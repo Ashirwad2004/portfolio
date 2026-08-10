@@ -66,7 +66,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               <div className="border-b border-zinc-900 pb-6 print:border-black flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                   <h1 className="font-serif text-3xl font-bold text-white print:text-black">Ashirwad Kumar Jha</h1>
-                  <p className="text-sm text-accent font-semibold mt-1">Frontend Developer</p>
+                  <p className="text-sm text-accent font-semibold mt-1">Full Stack Developer AI Engineer</p>
                   <p className="text-xs text-zinc-550 mt-1">Bangalore, Karnataka, India</p>
                 </div>
                 <div className="text-xs space-y-1 text-zinc-400 font-mono print:text-black">

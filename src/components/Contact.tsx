@@ -80,7 +80,7 @@ export function Contact() {
                 <span className="text-xs font-semibold text-white">Current Availability Status</span>
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                Open to discuss B2B frontend contracts, React-based dashboard architecture consulting, or full-time opportunities.
+                Open to discuss B2B Fullstack contracts, or full-time opportunities.
               </p>
             </div>
 
