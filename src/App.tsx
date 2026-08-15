@@ -27,12 +27,17 @@ function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [appearance, setAppearance] = useState<"dark" | "light">(() => {
-    const savedAppearance = localStorage.getItem("portfolio-appearance");
-    if (savedAppearance === "light" || savedAppearance === "dark") {
-      return savedAppearance;
+    try {
+      const savedAppearance = localStorage.getItem("portfolio-appearance");
+      if (savedAppearance === "light" || savedAppearance === "dark") {
+        return savedAppearance;
+      }
+    } catch {
+      // ignore localStorage access errors
     }
 
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    // First visit: default to light mode. User can toggle afterwards.
+    return "light";
   });
 
   useEffect(() => {
