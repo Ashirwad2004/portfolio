@@ -34,11 +34,16 @@ export function Contact() {
 
     setStatus("submitting");
 
-    // Simulate sending email (2s delay)
+    const subject = `Contact from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    const mailtoUrl = `mailto:${links.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(mailtoUrl, "_blank");
+
     setTimeout(() => {
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    }, 1800);
+    }, 300);
   };
 
   return (
@@ -64,7 +69,7 @@ export function Contact() {
               
               <a
                 href={`mailto:${links.email}`}
-                className="block font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-white transition-colors hover:text-accent break-words leading-tight clickable-element"
+                className="block font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-white transition-colors hover:text-accent whitespace-nowrap leading-tight clickable-element"
               >
                 {links.email}
               </a>
@@ -233,9 +238,9 @@ export function Contact() {
         <footer className="mt-28 flex flex-col md:flex-row md:items-center justify-between border-t border-zinc-900 pt-8 text-[11px] text-zinc-550 font-mono gap-4">
           <p>© {new Date().getFullYear()} Ashirwad Kumar Jha. All Rights Reserved.</p>
           <div className="flex gap-4">
-            <span>Built with React + TypeScript</span>
+            <span></span>
             <span className="text-zinc-700">·</span>
-            <span>Awwwards Aesthetic Redesign</span>
+
           </div>
         </footer>
       </div>

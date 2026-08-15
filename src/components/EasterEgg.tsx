@@ -125,7 +125,7 @@ export function EasterEgg({ isOpen, onClose }: EasterEggProps) {
             <div className="flex items-center justify-between border-b border-emerald-950 bg-neutral-950 px-4 py-2">
               <div className="flex items-center gap-2">
                 <Terminal className="h-4 w-4 text-emerald-500" />
-                <span className="text-xs text-emerald-500">ashirwad@retro-os: ~</span>
+                <span className="text-xs text-emerald-500"> ashirwad@portfolio-os: ~</span>
               </div>
               <button 
                 onClick={onClose}
