@@ -7,6 +7,21 @@
   /* Default Accent Theme: Cyber Blue */
   --accent-rgb: 59, 130, 246; /* Blue-500 */
   --accent-glow-rgb: 59, 130, 246;
+  --surface-rgb: 5, 5, 10;
+  --surface-soft-rgb: 10, 10, 15;
+  --content-rgb: 255, 255, 255;
+  --muted-rgb: 255, 255, 255;
+  --border-rgb: 255, 255, 255;
+  color-scheme: dark;
+}
+
+[data-appearance="light"] {
+  --surface-rgb: 255, 255, 255;
+  --surface-soft-rgb: 248, 250, 252;
+  --content-rgb: 0, 0, 0;
+  --muted-rgb: 0, 0, 0;
+  --border-rgb: 0, 0, 0;
+  color-scheme: light;
 }
 
 [data-theme="purple"] {
@@ -32,26 +47,33 @@
   --color-accent-hover: rgba(var(--accent-rgb), 0.8);
   --color-accent-glow: rgba(var(--accent-rgb), 0.15);
   
-  --color-dark-bg: #05050a;
-  --color-dark-card: rgba(10, 10, 15, 0.45);
-  --color-dark-border: rgba(99, 102, 241, 0.12);
-  --color-dark-muted: #8e92ad;
+  --color-dark-bg: rgb(var(--surface-rgb));
+  --color-dark-card: rgba(var(--surface-soft-rgb), 0.72);
+  --color-dark-border: rgba(var(--border-rgb), 0.12);
+  --color-dark-muted: rgb(var(--muted-rgb));
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #05050a;
-  color: #f4f4f5;
+  background-color: rgb(var(--surface-rgb));
+  color: rgb(var(--content-rgb));
   overflow-x: hidden;
 }
 
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background-color: #05050a;
+  background-color: rgb(var(--surface-rgb));
+  color: rgb(var(--content-rgb));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+[data-appearance="light"] body {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(var(--accent-rgb), 0.08), transparent 32rem),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 }
 
 /* Lenis smooth scroll styling */
@@ -98,6 +120,12 @@ html.lenis body {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+[data-appearance="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 50px -28px rgba(15, 23, 42, 0.25);
+}
+
 .glass-card-hover {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -106,6 +134,12 @@ html.lenis body {
   background: rgba(15, 15, 20, 0.7);
   border-color: rgba(var(--accent-rgb), 0.3);
   box-shadow: 0 10px 30px -10px rgba(var(--accent-rgb), 0.15);
+}
+
+[data-appearance="light"] .glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(var(--accent-rgb), 0.42);
+  box-shadow: 0 18px 44px -24px rgba(var(--accent-rgb), 0.34);
 }
 
 /* Hide scrollbar but keep functionality */
@@ -242,4 +276,80 @@ h1, h2, h3, h4, .font-serif {
 
 p, span, div, a, li, button, .font-sans {
   font-family: var(--font-sans);
+}
+
+[data-appearance="light"] .noise-overlay {
+  opacity: 0.012;
+}
+
+[data-appearance="light"] .aurora-blob {
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+}
+
+[data-appearance="light"] :is(
+  .text-white,
+  .text-black,
+  .text-zinc-100,
+  .text-zinc-200,
+  .text-zinc-300,
+  .text-zinc-400,
+  .text-zinc-500,
+  .text-zinc-550,
+  .text-zinc-600,
+  .text-zinc-650,
+  .text-zinc-700
+) {
+  color: #000 !important;
+}
+
+[data-appearance="light"] :is(
+  .bg-black,
+  .bg-zinc-900,
+  .bg-zinc-950
+),
+[data-appearance="light"] [class*="bg-black/"],
+[data-appearance="light"] [class*="bg-zinc-900/"],
+[data-appearance="light"] [class*="bg-zinc-950/"] {
+  background-color: rgba(255, 255, 255, 0.84) !important;
+}
+
+[data-appearance="light"] :is(
+  .border-zinc-700,
+  .border-zinc-800,
+  .border-zinc-850,
+  .border-zinc-900,
+  .border-zinc-950
+),
+[data-appearance="light"] [class*="border-zinc-800/"],
+[data-appearance="light"] [class*="border-zinc-900/"] {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+
+[data-appearance="light"] .bg-gradient-to-r.bg-clip-text,
+[data-appearance="light"] .text-transparent {
+  background: none !important;
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
+}
+
+[data-appearance="light"] input,
+[data-appearance="light"] textarea {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  color: #000 !important;
+  border-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+[data-appearance="dark"] :is(
+  .text-zinc-100,
+  .text-zinc-200,
+  .text-zinc-300,
+  .text-zinc-400,
+  .text-zinc-500,
+  .text-zinc-550,
+  .text-zinc-600,
+  .text-zinc-650,
+  .text-zinc-700
+) {
+  color: #fff !important;
 }

@@ -50,8 +50,10 @@ export function InteractiveBackground() {
     }
 
     const draw = () => {
+      const isLight = document.documentElement.getAttribute("data-appearance") === "light";
+
       // Clear with subtle alpha trail for motion blur
-      ctx.fillStyle = "rgba(5, 5, 10, 1)"; // Deep space obsidian base
+      ctx.fillStyle = isLight ? "rgba(255, 255, 255, 1)" : "rgba(5, 5, 10, 1)";
       ctx.fillRect(0, 0, width, height);
 
       // Spring physics for mouse cursor trailing
@@ -60,19 +62,19 @@ export function InteractiveBackground() {
 
       // Draw background ambient color glows (Aurora lights)
       const grad1 = ctx.createRadialGradient(width * 0.2, height * 0.2, 0, width * 0.2, height * 0.2, width * 0.4);
-      grad1.addColorStop(0, "rgba(99, 102, 241, 0.08)"); // Indigo
+      grad1.addColorStop(0, isLight ? "rgba(59, 130, 246, 0.07)" : "rgba(99, 102, 241, 0.08)");
       grad1.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, width, height);
 
       const grad2 = ctx.createRadialGradient(width * 0.8, height * 0.7, 0, width * 0.8, height * 0.7, width * 0.5);
-      grad2.addColorStop(0, "rgba(168, 85, 247, 0.05)"); // Purple
+      grad2.addColorStop(0, isLight ? "rgba(6, 182, 212, 0.045)" : "rgba(168, 85, 247, 0.05)");
       grad2.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = grad2;
       ctx.fillRect(0, 0, width, height);
 
       // Draw interactive warped mesh grid
-      ctx.strokeStyle = "rgba(99, 102, 241, 0.07)"; // Subtle blue grid lines
+      ctx.strokeStyle = isLight ? "rgba(0, 0, 0, 0.045)" : "rgba(99, 102, 241, 0.07)";
       ctx.lineWidth = 0.5;
 
       points.forEach((p) => {
@@ -140,7 +142,7 @@ export function InteractiveBackground() {
             const alpha = (1 - dist / mouse.radius) * 0.35;
             ctx.beginPath();
             ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(59, 130, 246, ${alpha})`;
+            ctx.fillStyle = isLight ? `rgba(0, 0, 0, ${alpha * 0.42})` : `rgba(59, 130, 246, ${alpha})`;
             ctx.fill();
           }
         });

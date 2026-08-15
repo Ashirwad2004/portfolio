@@ -8,14 +8,14 @@ export const links = {
 
 export const hero = {
   headline:
-    "Fullstack Developer building production-grade, AI-integrated web apps",
+    "Full-stack developer building production-grade, AI-integrated web apps.",
   subheadline:
-    "1+ year shipping fullstack applications with React, Next.js, and TypeScript — from B2B accounting dashboards used by 1M+ businesses to an AI-powered finance tracker that reads receipts and answers cash-flow questions in plain English.",
+    "I turn messy business workflows into fast, reliable products with React, Next.js, TypeScript, Supabase, and AI features that are useful in the real world, from finance automation to logistics dashboards.",
 } as const;
 
 export const about = [
   "I'm a fullstack developer based in Bangalore, working mainly in React, Next.js, and TypeScript, with backend range in Python (FastAPI, Django, Flask) when a project needs it.",
-  "Over the past year I've worked inside fintech and SaaS teams — cutting user-reported errors 25% at Vyapar, building a component library that saved the team 30% of dev time at Podtech, and shipping real-time analytics dashboards at 1Stop AI.",
+  "Over the past year I've worked inside fintech and SaaS teams, cutting user-reported errors 25% at Vyapar, building a component library that saved the team 30% of dev time at Podtech, and shipping real-time analytics dashboards at 1Stop AI.",
   "Outside client work, I built FinFlow, a full-stack finance tracker that uses Gemini to read receipts and answer accounting questions in natural language.",
 ] as const;
 
@@ -33,12 +33,12 @@ export const featuredProject = {
     {
       title: "Smart Fill",
       description:
-        'Parses input like "₹1200 electricity bill" straight into structured expense fields, no manual entry',
+        'Parses input like "Rs 1200 electricity bill" straight into structured expense fields, no manual entry',
     },
     {
       title: "Magic Add",
       description:
-        'Splits compound entries ("spent ₹400 on cab, Rahul owes ₹500") into multiple dated transactions in one step',
+        'Splits compound entries ("spent Rs 400 on cab, Rahul owes Rs 500") into multiple dated transactions in one step',
     },
     {
       title: "Bill Scanner",
@@ -128,7 +128,7 @@ export const experience = [
   {
     company: "Vyapar",
     role: "Full Stack Developer Intern",
-    period: "Dec 2025 – Mar 2026",
+    period: "Dec 2025 - Mar 2026",
     bullets: [
       "Fixed critical UI bugs and improved form-validation logic on Vyapar's B2B accounting platform (1M+ SMB users), cutting user-reported errors 25% in 2 months",
       "Built internal Next.js admin dashboards that replaced manual onboarding and config processes",
@@ -137,7 +137,7 @@ export const experience = [
   {
     company: "Podtech",
     role: "Full Stack Developer Intern",
-    period: "Apr – Jun 2025",
+    period: "Apr - Jun 2025",
     bullets: [
       "Built a reusable component library in TypeScript + TailwindCSS, cutting team dev time 30%",
       "Implemented Redux Toolkit across multi-step workflows, eliminating race conditions",
@@ -146,7 +146,7 @@ export const experience = [
   {
     company: "1Stop AI",
     role: "Full Stack Developer AI Engineer",
-    period: "Jan – Mar 2025",
+    period: "Jan - Mar 2025",
     bullets: [
       "Built responsive React interfaces for AI-powered SaaS products",
       "Integrated REST APIs and WebSocket streams for sub-second live updates; improved Lighthouse scores via code-splitting, lazy loading, and tree-shaking",
@@ -229,5 +229,5 @@ export const achievements = [
 export const education = {
   degree: "B.Tech, Computer Science",
   school: "Veltech University, Chennai",
-  period: "2021–2025",
+  period: "2021-2025",
 } as const;

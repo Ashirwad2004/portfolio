@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Command, Menu, X } from "lucide-react";
+import { Command, Menu, Moon, Sun, X } from "lucide-react";
 
 interface NavProps {
+  appearance: "dark" | "light";
+  onToggleAppearance: () => void;
   onOpenPalette: () => void;
 }
 
@@ -14,7 +16,7 @@ const sections = [
   { id: "contact", label: "Contact" },
 ] as const;
 
-export function Nav({ onOpenPalette }: NavProps) {
+export function Nav({ appearance, onToggleAppearance, onOpenPalette }: NavProps) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -107,6 +109,15 @@ export function Nav({ onOpenPalette }: NavProps) {
 
           {/* Action Tools */}
           <div className="flex items-center gap-2.5">
+            <button
+              onClick={onToggleAppearance}
+              className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-900 bg-zinc-950 text-zinc-400 transition-colors hover:border-zinc-800 hover:text-white clickable-element"
+              title={appearance === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={appearance === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {appearance === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+
             {/* Ctrl+K Command palette shortcut info */}
             <button
               onClick={onOpenPalette}
@@ -116,7 +127,7 @@ export function Nav({ onOpenPalette }: NavProps) {
               <Command className="h-3.5 w-3.5" />
               <span>Search</span>
               <kbd className="rounded bg-zinc-900 px-1 text-[9px] font-mono border border-zinc-800">
-                ⌘K
+                Ctrl K
               </kbd>
             </button>
 
@@ -201,6 +212,17 @@ export function Nav({ onOpenPalette }: NavProps) {
                 className="h-5 w-5 rounded-full bg-cyan-500 border border-white/20"
               />
             </div>
+
+            <button
+              onClick={() => {
+                onToggleAppearance();
+                setMobileMenuOpen(false);
+              }}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 border border-zinc-800 py-3.5 text-sm text-zinc-300"
+            >
+              {appearance === "dark" ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
+              <span>{appearance === "dark" ? "Use Light Mode" : "Use Dark Mode"}</span>
+            </button>
           </div>
         </div>
       )}

@@ -210,7 +210,7 @@ export function Hero() {
             >
               Ashirwad Jha
               <span className="block mt-2 bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent font-sans text-[clamp(1.5rem,3.5vw,2.5rem)] font-light tracking-wide">
-                Full Stack Developer AI Engineer
+                Full Stack Developer & AI Engineer
               </span>
             </motion.h1>
 
@@ -272,7 +272,7 @@ export function Hero() {
                   >
                     <GithubIcon className="h-4 w-4" />
                     <span className="font-mono">GitHub</span>
-                    <span className="text-[9px] text-zinc-600">↗</span>
+                    <span className="text-[9px] text-zinc-600">open</span>
                   </a>
                 </li>
                 <li>
@@ -284,7 +284,7 @@ export function Hero() {
                   >
                     <LinkedinIcon className="h-4 w-4 text-blue-400" />
                     <span className="font-mono">LinkedIn</span>
-                    <span className="text-[9px] text-zinc-600">↗</span>
+                    <span className="text-[9px] text-zinc-600">open</span>
                   </a>
                 </li>
                 <li>
@@ -294,14 +294,14 @@ export function Hero() {
                   >
                     <Mail className="h-4 w-4 text-accent" />
                     <span className="font-mono">Email</span>
-                    <span className="text-[9px] text-zinc-600">↗</span>
+                    <span className="text-[9px] text-zinc-600">open</span>
                   </a>
                 </li>
               </ul>
 
               {/* Cmd+K reminder */}
               <div className="hidden lg:block mt-12 text-[10px] text-zinc-500 font-sans leading-relaxed">
-                Press <kbd className="rounded bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 font-mono text-[9px] text-zinc-400">⌘K</kbd> to launch the command menu.
+                Press <kbd className="rounded bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 font-mono text-[9px] text-zinc-400">Ctrl K</kbd> to launch the command menu.
               </div>
             </motion.div>
           </div>

@@ -26,6 +26,19 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [appearance, setAppearance] = useState<"dark" | "light">(() => {
+    const savedAppearance = localStorage.getItem("portfolio-appearance");
+    if (savedAppearance === "light" || savedAppearance === "dark") {
+      return savedAppearance;
+    }
+
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-appearance", appearance);
+    localStorage.setItem("portfolio-appearance", appearance);
+  }, [appearance]);
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
@@ -86,7 +99,11 @@ function App() {
           />
 
           {/* Floating Navbar */}
-          <Nav onOpenPalette={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true }))} />
+          <Nav
+            appearance={appearance}
+            onToggleAppearance={() => setAppearance((current) => current === "dark" ? "light" : "dark")}
+            onOpenPalette={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true }))}
+          />
           
           {/* Sections assembly */}
           <main className="relative z-10">
