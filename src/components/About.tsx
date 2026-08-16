@@ -38,8 +38,8 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="relative border-y border-zinc-900 bg-black/40 py-24 lg:py-32">
-      <div className="mx-auto max-w-[76rem] px-6 lg:px-12 relative z-10">
+    <section id="about" className="section-y relative border-y border-zinc-900 bg-black/40">
+      <div className="page-shell relative z-10">
         <SectionHeader index="02" title="About" />
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
@@ -75,7 +75,7 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.5 }}
-                    className="glass-card spotlight-card glass-card-hover rounded-xl p-5 border border-zinc-800/80 flex flex-col justify-between h-44"
+                    className="glass-card spotlight-card glass-card-hover rounded-xl p-5 border border-zinc-800/80 flex min-h-44 flex-col justify-between"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400">
@@ -85,7 +85,7 @@ export function About() {
                     </div>
 
                     <div className="mt-4">
-                      <p className={`text-3xl font-bold font-mono tracking-tight text-white`}>
+                      <p className="text-2xl font-bold font-mono tracking-tight text-white sm:text-3xl">
                         {stat.value}
                       </p>
                       <p className="mt-1 text-xs font-semibold text-zinc-200">

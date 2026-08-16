@@ -165,7 +165,7 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden bg-transparent pt-32 pb-24 text-zinc-300 min-h-[95svh] flex items-center spotlight-card"
+      className="relative overflow-hidden bg-transparent pt-28 pb-16 text-zinc-300 min-h-[100svh] flex items-center spotlight-card sm:pt-32 sm:pb-24"
     >
       {/* Background Canvas Particles */}
       <canvas
@@ -179,37 +179,37 @@ export function Hero() {
         <div className="aurora-blob bg-purple-500/5 w-[500px] h-[500px] bottom-[15%] right-[10%]" />
       </div>
 
-      <div className="relative mx-auto max-w-[76rem] px-6 lg:px-12 w-full z-10">
+      <div className="page-shell relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid gap-16 lg:grid-cols-12 lg:gap-8"
+          className="grid gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-8"
         >
           {/* Main Info Columns */}
-          <div className="lg:col-span-8 space-y-6">
+          <div className="space-y-5 sm:space-y-6 lg:col-span-8">
             
             {/* Availability Badge */}
             <motion.div 
               variants={itemVariants} 
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/80 px-3.5 py-1.5 text-xs text-zinc-400"
+              className="inline-flex max-w-full items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/80 px-3 py-1.5 text-xs text-zinc-400 sm:px-3.5"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="font-semibold tracking-wide font-sans text-[10px] uppercase">
-                Available for Full-time Roles
+              <span className="font-semibold tracking-wide font-sans text-[9px] uppercase sm:text-[10px]">
+                Available for Product Engineering Roles
               </span>
             </motion.div>
 
             {/* Huge Serif Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-serif text-[clamp(2.75rem,6.5vw,4.75rem)] font-extrabold leading-[0.98] tracking-tight text-white"
+              className="font-serif text-[clamp(2.35rem,12vw,4.75rem)] font-extrabold leading-[1.02] tracking-tight text-white sm:leading-[0.98]"
             >
               Ashirwad Jha
-              <span className="block mt-2 bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent font-sans text-[clamp(1.5rem,3.5vw,2.5rem)] font-light tracking-wide">
+              <span className="block mt-2 bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent font-sans text-[clamp(1.2rem,7vw,2.5rem)] font-light tracking-wide">
                 Full Stack Developer & AI Engineer
               </span>
             </motion.h1>
@@ -218,7 +218,7 @@ export function Hero() {
             <div className="space-y-4 max-w-2xl pt-2">
               <motion.p
                 variants={itemVariants}
-                className="text-lg leading-snug text-zinc-200 font-sans"
+                className="text-base leading-snug text-zinc-200 font-sans sm:text-lg"
               >
                 {hero.headline}
               </motion.p>
@@ -233,21 +233,21 @@ export function Hero() {
             {/* Action buttons CTAs */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-4 pt-6"
+              className="flex flex-col items-stretch gap-3 pt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 sm:pt-6"
             >
               <a
                 href="#work"
-                className="group flex items-center gap-2 rounded-xl bg-white px-5 py-3.5 text-xs font-semibold text-black transition-all hover:bg-zinc-200 clickable-element"
+                className="group flex tap-target items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-xs font-semibold text-black transition-all hover:bg-zinc-200 clickable-element sm:py-3.5"
               >
-                <span>View Projects</span>
+                <span>See Selected Work</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
                 href="#contact"
-                className="group flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-950 px-5 py-3.5 text-xs font-semibold text-zinc-300 transition-all hover:border-zinc-700 hover:text-white clickable-element"
+                className="group flex tap-target items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-950 px-5 py-3 text-xs font-semibold text-zinc-300 transition-all hover:border-zinc-700 hover:text-white clickable-element sm:py-3.5"
               >
-                <span>Contact Me</span>
+                <span>Start a Conversation</span>
                 <Mail className="h-4 w-4" />
               </a>
             </motion.div>
@@ -260,7 +260,7 @@ export function Hero() {
               className="w-full border-t border-zinc-900 pt-6 lg:max-w-[240px] lg:border-t-0 lg:pt-0 lg:text-right"
             >
               <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-semibold mb-4 font-sans">
-                Elsewhere
+                Connect
               </p>
               <ul className="space-y-3.5">
                 <li>

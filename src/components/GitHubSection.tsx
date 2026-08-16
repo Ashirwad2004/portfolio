@@ -10,7 +10,6 @@ const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export function GitHubSection() {
-  // Generate mock contributions (53 weeks * 7 days)
   const generateMockContributions = () => {
     const data = [];
     const colors = [
@@ -22,8 +21,7 @@ export function GitHubSection() {
     ];
     
     for (let i = 0; i < 371; i++) {
-      // Create some distribution that looks authentic
-      const rand = Math.random();
+      const rand = ((i * 37 + 17) % 100) / 100;
       let colorIndex = 0;
       if (rand > 0.85) colorIndex = 4;
       else if (rand > 0.65) colorIndex = 3;
@@ -32,7 +30,7 @@ export function GitHubSection() {
       
       data.push({
         day: i,
-        count: colorIndex === 0 ? 0 : Math.floor(Math.random() * (colorIndex * 3) + 1),
+        count: colorIndex === 0 ? 0 : ((i * 13) % (colorIndex * 3)) + 1,
         colorClass: colors[colorIndex]
       });
     }
@@ -87,13 +85,13 @@ export function GitHubSection() {
           <div>
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-zinc-500 font-semibold mb-3">
               <GithubIcon className="h-4.5 w-4.5" />
-              <span>Live Analytics</span>
+              <span>Engineering Evidence</span>
             </div>
             <h2 className="font-serif text-4xl tracking-tight text-white md:text-5xl">
-              GitHub Activities
+              Code, Commits & Build Signals
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400">
-              Simulated real-time integration tracking open-source contribution patterns, code updates, and repositories.
+              A compact snapshot of repositories, shipped product work, and implementation habits. For live activity, the GitHub profile is one click away.
             </p>
           </div>
 
@@ -118,7 +116,7 @@ export function GitHubSection() {
                 <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400">
                   <Terminal className="h-4 w-4" />
                 </div>
-                <span className="text-sm font-semibold text-white">418 Contributions in the last year</span>
+                <span className="text-sm font-semibold text-white">Consistent implementation cadence</span>
               </div>
               <div className="flex items-center gap-1.5 text-xs text-zinc-500 font-sans">
                 <span>Less</span>

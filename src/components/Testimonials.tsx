@@ -15,23 +15,23 @@ export function Testimonials() {
 
   const testimonials: Testimonial[] = [
     {
-      quote: "Ashirwad has an exceptional eye for user experience. During his internship at Vyapar, he single-handedly redesigned critical payment ledger flows, resolving validation gaps and reducing user complaints by 25%. A true talent.",
-      author: "Siddharth Kumar",
-      role: "Lead Engineering Manager",
+      quote: "Improved payment ledger flows and validation behavior on a B2B accounting surface, reducing repeated user-facing UI issues by 25%.",
+      author: "Vyapar",
+      role: "Internship impact",
       company: "Vyapar",
       avatarChar: "V"
     },
     {
-      quote: "His reusable design system components saved our product teams dozens of development hours. Ashirwad understands TypeScript clean architecture and was able to work independently to solve complex UI race conditions.",
-      author: "Aditi Sharma",
-      role: "Senior Engineering Lead",
+      quote: "Built reusable TypeScript and Tailwind components that gave the team a faster path for repeated product screens and reduced implementation time.",
+      author: "Podtech",
+      role: "Frontend systems work",
       company: "Podtech",
       avatarChar: "P"
     },
     {
-      quote: "An outstanding problem solver. He mentored first-year students and consistently delivered high-performance web applications that loaded instantly. High technical capabilities.",
-      author: "Prof. Rajesh Patel",
-      role: "Mentor & Incubation Coordinator",
+      quote: "Mentored students in web fundamentals and shipped polished prototypes under hackathon pressure, including a winning eye-tracking interface concept.",
+      author: "KLIC / Veltech",
+      role: "Mentoring and hackathon work",
       company: "Veltech University",
       avatarChar: "K"
     }
@@ -54,13 +54,13 @@ export function Testimonials() {
           <div>
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-zinc-500 font-semibold mb-3">
               <MessageSquare className="h-4.5 w-4.5" />
-              <span>Endorsements</span>
+              <span>Work Signals</span>
             </div>
             <h2 className="font-serif text-4xl tracking-tight text-white md:text-5xl">
-              Client & Supervisor Feedback
+              Impact Notes
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400">
-              Trusted by mentors, managers, and teammates to ship production-grade digital designs.
+              Practical signals from internships, product work, and mentoring that show how Ashirwad contributes on real teams.
             </p>
           </div>
 

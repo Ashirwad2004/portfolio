@@ -58,16 +58,63 @@ html {
   background-color: rgb(var(--surface-rgb));
   color: rgb(var(--content-rgb));
   overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
+  min-width: 320px;
   font-family: var(--font-sans);
   background-color: rgb(var(--surface-rgb));
   color: rgb(var(--content-rgb));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+* {
+  min-width: 0;
+}
+
+img,
+canvas,
+svg,
+video {
+  max-width: 100%;
+}
+
+@layer utilities {
+  .page-shell {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 3rem);
+  }
+
+  .section-y {
+    padding-block: clamp(4.5rem, 9vw, 8rem);
+  }
+
+  .section-y-tight {
+    padding-block: clamp(2rem, 5vw, 3rem);
+  }
+
+  .tap-target {
+    min-height: 2.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-cursor,
+  .custom-cursor-glow {
+    display: none;
+  }
+
+  .aurora-blob {
+    width: min(75vw, 22rem);
+    height: min(75vw, 22rem);
+    filter: blur(80px);
+  }
 }
 
 [data-appearance="light"] body {

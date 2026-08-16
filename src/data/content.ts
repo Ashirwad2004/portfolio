@@ -2,6 +2,7 @@ export const links = {
   github: "https://github.com/Ashirwad2004",
   linkedin: "https://linkedin.com/in/ashiwadjha2004",
   email: "ashirwassatyam@gmail.com",
+  phone: "+91 8102545007",
   resume: ""
 
 } as const;
@@ -12,6 +13,36 @@ export const hero = {
   subheadline:
     "I turn messy business workflows into fast, reliable products with React, Next.js, TypeScript, Supabase, and AI features that are useful in the real world, from finance automation to logistics dashboards.",
 } as const;
+
+export const proofMetrics = [
+  {
+    value: "1M+",
+    label: "users impacted",
+    detail: "B2B accounting platform experience at Vyapar",
+  },
+  {
+    value: "25%",
+    label: "fewer UI errors",
+    detail: "form validation and payment-ledger fixes",
+  },
+  {
+    value: "30%",
+    label: "dev time saved",
+    detail: "reusable TypeScript component library",
+  },
+  {
+    value: "4",
+    label: "shipped products",
+    detail: "AI finance, chat, logistics, and banking BI",
+  },
+] as const;
+
+export const operatingPrinciples = [
+  "Product-minded engineering",
+  "Clean TypeScript interfaces",
+  "Fast, responsive UI systems",
+  "AI only where it improves the workflow",
+] as const;
 
 export const about = [
   "I'm a fullstack developer based in Bangalore, working mainly in React, Next.js, and TypeScript, with backend range in Python (FastAPI, Django, Flask) when a project needs it.",

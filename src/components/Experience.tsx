@@ -12,12 +12,12 @@ export function Experience() {
   };
 
   return (
-    <section id="experience" className="relative py-24 lg:py-32 overflow-hidden border-t border-zinc-900 bg-black/20">
+    <section id="experience" className="section-y relative overflow-hidden border-t border-zinc-900 bg-black/20">
       
       {/* Decorative vertical gradient line background */}
       <div className="absolute left-[39px] md:left-[55px] lg:left-1/2 top-48 bottom-24 w-[1px] bg-gradient-to-b from-zinc-800 via-accent/30 to-zinc-900/10 pointer-events-none" />
 
-      <div className="mx-auto max-w-[76rem] px-6 lg:px-12 relative z-10">
+      <div className="page-shell relative z-10">
         <SectionHeader index="04" title="Experience" />
 
         <div className="space-y-12 relative">
@@ -51,7 +51,7 @@ export function Experience() {
                     <span>{company}</span>
                   </span>
                   
-                  <h3 className="font-serif text-2xl font-bold text-white tracking-tight">{role}</h3>
+                  <h3 className="font-serif text-xl font-bold text-white tracking-tight sm:text-2xl">{role}</h3>
                   <div className={`flex items-center gap-2 text-xs text-zinc-500 font-mono mt-1.5 ${
                     isEven ? "lg:justify-end" : "lg:justify-start"
                   }`}>

@@ -141,15 +141,15 @@ export function Work() {
   };
 
   return (
-    <section id="work" className="py-24 lg:py-32">
-      <div className="mx-auto max-w-[76rem] px-6 lg:px-12">
+    <section id="work" className="section-y">
+      <div className="page-shell">
         <SectionHeader
           index="01"
           title="Selected work"
           description="Production apps shipped end to end — UI, backend integration, and deployment."
         />
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-5 sm:gap-6 lg:gap-8 md:grid-cols-2">
           {/* RupeBill Project Card */}
           <ProjectCard
             name={featuredProject.name}

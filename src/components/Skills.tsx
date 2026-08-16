@@ -45,8 +45,8 @@ export function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 lg:py-32">
-      <div className="mx-auto max-w-[76rem] px-6 lg:px-12">
+    <section id="skills" className="section-y">
+      <div className="page-shell">
         <SectionHeader 
           index="03" 
           title="Skills" 
@@ -66,7 +66,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
-                className="glass-card Spotlight-card glass-card-hover spotlight-card rounded-2xl p-6 border border-zinc-800/80 flex flex-col justify-between h-[250px]"
+                className="glass-card glass-card-hover spotlight-card rounded-2xl p-5 sm:p-6 border border-zinc-800/80 flex min-h-[250px] flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

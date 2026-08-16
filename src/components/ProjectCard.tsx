@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { ExternalLink, Eye } from "lucide-react";
+import { ExternalLink, Eye, Sparkles } from "lucide-react";
 
 type ProjectCardProps = {
   name: string;
@@ -11,6 +11,13 @@ type ProjectCardProps = {
   className?: string;
   image?: string;
   onOpenCaseStudy: () => void;
+};
+
+const projectOutcomes: Record<string, string> = {
+  RupeBill: "AI bookkeeping workflow",
+  NexusChat: "Realtime messaging system",
+  LogiFlow: "Fleet operations console",
+  BankBI: "Banking intelligence dashboard",
 };
 
 // Custom SVG Github icon to bypass lucide export differences
@@ -69,11 +76,17 @@ export function ProjectCard({
               alt={`${name} Screenshot`} 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
             />
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/80 to-transparent px-4 pb-4 pt-10">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/45 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
+                <Sparkles className="h-3 w-3 text-accent" />
+                {projectOutcomes[name] || "Production build"}
+              </span>
+            </div>
           </div>
         )}
         <div className="flex items-center justify-between">
           <span className="rounded-full bg-zinc-900 border border-zinc-800 px-2.5 py-0.5 text-[9px] font-mono text-zinc-400 uppercase">
-             Project
+             Case study
           </span>
           {gitHref && (
             <a 
@@ -122,7 +135,7 @@ export function ProjectCard({
             className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors clickable-element"
           >
             <Eye className="h-3.5 w-3.5" />
-            <span>Read Case Study</span>
+            <span>View Decisions</span>
           </button>
           
           {href ? (
@@ -132,7 +145,7 @@ export function ProjectCard({
               rel="noopener noreferrer"
               className="flex items-center gap-1 font-semibold text-white hover:text-accent transition-colors clickable-element"
             >
-              <span>Live App</span>
+              <span>Open Product</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           ) : (
@@ -143,7 +156,7 @@ export function ProjectCard({
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 font-semibold text-white hover:text-accent transition-colors clickable-element"
               >
-                <span>GitHub Repo</span>
+                <span>View Repo</span>
                 <ExternalLink className="h-3.5 w-3.5" />
               </a>
             )

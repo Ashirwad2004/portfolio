@@ -74,13 +74,13 @@ export function Nav({ appearance, onToggleAppearance, onOpenPalette }: NavProps)
         }`}
       >
         <nav
-          className="mx-auto flex max-w-[76rem] items-center justify-between px-6 py-4 lg:px-12"
+          className="page-shell flex items-center justify-between py-3.5 sm:py-4"
           aria-label="Primary Navigation"
         >
           {/* Logo monogram */}
           <a
             href="#"
-            className="flex items-center gap-2 font-serif text-lg tracking-tight text-white font-bold group"
+            className="flex min-w-0 items-center gap-2 font-serif text-base tracking-tight text-white font-bold group sm:text-lg"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800 text-sm font-semibold text-accent group-hover:border-accent/40 transition-colors">
               A
@@ -108,10 +108,10 @@ export function Nav({ appearance, onToggleAppearance, onOpenPalette }: NavProps)
           </ul>
 
           {/* Action Tools */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
             <button
               onClick={onToggleAppearance}
-              className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-900 bg-zinc-950 text-zinc-400 transition-colors hover:border-zinc-800 hover:text-white clickable-element"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-900 bg-zinc-950 text-zinc-400 transition-colors hover:border-zinc-800 hover:text-white clickable-element"
               title={appearance === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               aria-label={appearance === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
@@ -153,7 +153,7 @@ export function Nav({ appearance, onToggleAppearance, onOpenPalette }: NavProps)
             {/* Mobile menu hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-800 text-zinc-400 hover:text-white"
+              className="md:hidden flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 text-zinc-400 hover:text-white"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -171,14 +171,14 @@ export function Nav({ appearance, onToggleAppearance, onOpenPalette }: NavProps)
 
       {/* Mobile nav overlay menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black/95 pt-20 px-6 md:hidden flex flex-col justify-between pb-8">
-          <ul className="space-y-6 pt-6 text-lg font-serif">
+        <div className="fixed inset-0 z-40 bg-black/95 px-4 pt-20 md:hidden flex flex-col justify-between pb-[max(2rem,env(safe-area-inset-bottom))]">
+          <ul className="space-y-5 pt-6 text-lg font-serif">
             {sections.map(({ id, label }) => (
               <li key={id}>
                 <a
                   href={`#${id}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-zinc-400 hover:text-white"
+                  className="block rounded-lg py-2 text-zinc-400 hover:text-white"
                 >
                   {label}
                 </a>

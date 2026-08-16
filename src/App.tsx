@@ -4,6 +4,7 @@ import Lenis from "lenis";
 // Existing refactored components
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
+import { ProofStrip } from "./components/ProofStrip";
 import { Work } from "./components/Work";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
@@ -113,6 +114,7 @@ function App() {
           {/* Sections assembly */}
           <main className="relative z-10">
             <Hero />
+            <ProofStrip />
             <Work />
             <About />
             <Skills />
