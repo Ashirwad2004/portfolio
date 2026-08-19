@@ -262,7 +262,7 @@ export function Blog() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isSubscribed}
-                className={`w-full rounded-lg border border-zinc-800 bg-zinc-950/80 py-3 px-4 text-xs text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-accent ${
+                className={`min-w-0 flex-1 rounded-lg border border-zinc-800 bg-zinc-950/80 px-4 py-3 text-xs text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-accent ${
                   isSubscribed ? "cursor-not-allowed opacity-50" : ""
                 }`}
               />
