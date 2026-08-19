@@ -39,7 +39,7 @@ export function Blog() {
       date: "Jul 28, 2026",
       readTime: "6 min read",
       slug: "architecting-ai-accountants-react-gemini",
-      href: "/blog/architecting-ai-accountants-react-gemini",
+      href: "", //have to add link to the article when it is published
     },
     {
       id: "art-2",
@@ -104,11 +104,11 @@ export function Blog() {
         <div className="mb-16">
           <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500">
             <BookOpen className="h-4 w-4" />
-            <span>Articles & Insights</span>
+            <span>Learning & Insights</span>
           </div>
 
           <h2 className="font-serif text-4xl tracking-tight text-white md:text-5xl">
-            From the Journal
+            From the Laerning Desk
           </h2>
 
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400">
@@ -165,7 +165,7 @@ export function Blog() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="glass-card glass-card-hover spotlight-card group relative flex h-[340px] flex-col justify-between rounded-2xl border border-zinc-800/80 p-6 no-underline"
+                className="glass-card glass-card-hover spotlight-card group relative flex h-full flex-col justify-between rounded-2xl border border-zinc-800/80 p-6 no-underline"
                 aria-label={`Read article: ${art.title}`}
               >
                 {/* Article Content */}
@@ -203,7 +203,7 @@ export function Blog() {
                   </span>
 
                   <span className="flex items-center gap-1 font-semibold text-white transition-all group-hover:gap-2">
-                    Read Article
+                    Show Learning
 
                     <ArrowUpRight className="h-3.5 w-3.5 text-accent transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </span>
@@ -220,7 +220,7 @@ export function Blog() {
                 <Search className="mx-auto mb-3 h-6 w-6 text-zinc-600" />
 
                 <p className="text-sm font-semibold text-zinc-300">
-                  No articles found
+                  No Learning  found
                 </p>
 
                 <p className="mt-1 text-xs text-zinc-500">
@@ -231,7 +231,7 @@ export function Blog() {
           )}
 
           {/* Newsletter Box */}
-          <div className="glass-card flex h-[340px] flex-col justify-between rounded-2xl border border-zinc-800/80 bg-gradient-to-br from-zinc-950 via-zinc-950 to-accent/5 p-6 lg:col-span-1">
+          <div className="glass-card flex h-fit self-start flex-col justify-between rounded-2xl border border-zinc-800/80 bg-gradient-to-br from-zinc-950 via-zinc-950 to-accent/5 p-6 lg:col-span-1">
 
             <div className="space-y-4">
 
@@ -240,73 +240,91 @@ export function Blog() {
               </div>
 
               <h3 className="font-serif text-xl font-bold leading-tight text-white">
-                Engineering Newsletter
+                Subscribe to the Newsletter
               </h3>
 
-              <p className="text-xs leading-relaxed text-zinc-400">
-                Join 1,200+ engineers reading monthly tips on building
-                clean codebases, web performance, and software design
-                systems.
+              <p className="text-sm text-zinc-400">
+                Get notified when new articles are published.
               </p>
             </div>
 
-            {/* Newsletter Form */}
             <form
               onSubmit={handleSubscribe}
-              className="space-y-3 pt-5"
+              className="relative mt-4 flex w-full items-center gap-2"
             >
-              <AnimatePresence mode="wait">
+              <input
+                type="email"
+                placeholder={
+                  isSubscribed
+                    ? "Subscribed!"
+                    : "Enter your email address"
+                }
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isSubscribed}
+                className={`w-full rounded-lg border border-zinc-800 bg-zinc-950/80 py-3 px-4 text-xs text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-accent ${
+                  isSubscribed ? "cursor-not-allowed opacity-50" : ""
+                }`}
+              />
 
-                {!isSubscribed ? (
+              <AnimatePresence>
+                {isSubscribed ? (
                   <motion.div
-                    initial={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="flex flex-col gap-2"
+                    key="subscribed"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center gap-1 rounded-lg bg-accent px-3 py-2 text-xs font-semibold text-black"
                   >
-                    <input
-                      type="email"
-                      required
-                      placeholder="Enter email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full rounded-xl border border-zinc-900 bg-zinc-950 px-4 py-3.5 text-xs text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-accent"
-                    />
-
-                    <button
-                      type="submit"
-                      className="w-full rounded-xl bg-white py-3.5 text-xs font-semibold text-black transition-colors hover:bg-zinc-200"
-                    >
-                      Subscribe
-                    </button>
+                    <CheckCircle className="h-4 w-4" />
+                    Subscribed
                   </motion.div>
                 ) : (
-                  <motion.div
-                    initial={{
-                      scale: 0.9,
-                      opacity: 0,
-                    }}
-                    animate={{
-                      scale: 1,
-                      opacity: 1,
-                    }}
-                    className="flex flex-col items-center justify-center py-6 text-center"
+                  <motion.button
+                    key="subscribe-button"
+                    type="submit"
+                    disabled={!email.trim()}
+                    className="shrink-0 whitespace-nowrap rounded-lg bg-accent px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:bg-accent/50"
                   >
-                    <CheckCircle className="mb-2 h-10 w-10 text-emerald-400" />
-
-                    <p className="text-xs font-semibold text-white">
-                      Subscription Successful!
-                    </p>
-
-                    <p className="mt-1 text-[10px] text-zinc-500">
-                      Check your inbox for updates.
-                    </p>
-                  </motion.div>
+                    Subscribe
+                  </motion.button>
                 )}
-
               </AnimatePresence>
             </form>
+
+            <AnimatePresence>
+              {isSubscribed && (
+                <motion.p
+                  key="thank-you-message"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  className="mt-2 text-xs text-green-400"
+                >
+                  Thank you for subscribing!
+                </motion.p>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+              {isSubscribed && (
+                <motion.p
+                  key="unsubscribe-message"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  className="mt-1 text-xs text-zinc-500"
+                >
+                  You can unsubscribe at any time.
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
         </div>
+
       </div>
     </section>
   );

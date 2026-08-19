@@ -26,7 +26,7 @@ export function Achievements() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08, duration: 0.5 }}
-                    className="glass-card spotlight-card glass-card-hover rounded-xl p-5 border border-zinc-800/80 flex flex-col justify-between h-[210px]"
+                    className="glass-card spotlight-card glass-card-hover rounded-xl p-5 border border-zinc-800/80 flex h-fit flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
@@ -60,10 +60,10 @@ export function Achievements() {
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="glass-card spotlight-card rounded-2xl p-6 md:p-8 border border-zinc-800 bg-gradient-to-br from-zinc-950 via-zinc-950 to-accent/5 h-[340px] flex flex-col justify-between"
+                className="glass-card spotlight-card rounded-2xl p-5 md:p-6 border border-zinc-800 bg-gradient-to-br from-zinc-950 via-zinc-950 to-accent/5 h-[240px] flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 text-accent mb-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 text-accent mb-4">
                     <GraduationCap className="h-5.5 w-5.5" />
                   </div>
 
@@ -77,7 +77,7 @@ export function Achievements() {
                 <div className="border-t border-zinc-900 pt-5 flex items-center justify-between text-[11px] text-zinc-500">
                   <div className="flex items-center gap-1.5">
                     <FileBadge className="h-4 w-4 text-emerald-400" />
-                    <span>Graduation GPA: First Class</span>
+                    <span>Graduation GPA:- 7.52</span>
                   </div>
                   <span className="font-mono text-zinc-600">Veltech '25</span>
                 </div>

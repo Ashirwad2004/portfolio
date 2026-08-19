@@ -133,7 +133,7 @@ export function Contact() {
               </div>
 
               <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                Open to discuss B2B Fullstack contracts, or full-time
+                Open to discuss Fullstack contracts, or full-time
                 opportunities.
               </p>
             </div>
