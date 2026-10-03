@@ -1,310 +1,35 @@
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
-import { hero, links } from "../data/content";
-
-// Local custom SVG components
-const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
-);
-
-const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { links } from "../data/content";
+import { HeroWorkflow } from "./HeroWorkflow";
 
 export function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Mouse Move listener for lighting coordinates
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      // Update custom properties for spotlight classes
-      containerRef.current.style.setProperty("--mouse-x", `${x}px`);
-      containerRef.current.style.setProperty("--mouse-y", `${y}px`);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  // HTML5 Canvas Floating Particle Animation (60 FPS)
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-
-    // Particle class
-    interface Particle {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-    }
-
-    const particles: Particle[] = [];
-    const particleCount = 40;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: Math.random() * 2 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.25,
-        speedY: (Math.random() - 0.5) * 0.25,
-        opacity: Math.random() * 0.5 + 0.1,
-      });
-    }
-
-    const draw = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      // Draw subtle grids
-      ctx.strokeStyle = "rgba(63, 63, 70, 0.04)";
-      ctx.lineWidth = 1;
-      const gridSize = 80;
-      for (let x = 0; x < width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // Draw floating spots
-      particles.forEach((p) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(244, 244, 245, ${p.opacity})`;
-        ctx.fill();
-
-        // Move
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        // Wrap edges
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-      });
-
-      // Animated radial mesh spot in the center
-      const grad = ctx.createRadialGradient(
-        width / 2,
-        height / 3,
-        0,
-        width / 2,
-        height / 3,
-        width * 0.5
-      );
-      grad.addColorStop(0, "rgba(59, 130, 246, 0.03)"); // Cyan/Blue accent glow
-      grad.addColorStop(1, "rgba(0, 0, 0, 0)");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, width, height);
-
-      animationFrameId = requestAnimationFrame(draw);
-    };
-
-    draw();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  // Text transition variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 25, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
-    },
-  };
+  const reducedMotion = useReducedMotion();
+  const entrance = (delay = 0) => ({
+    initial: reducedMotion ? false as const : { opacity: 0, y: 24 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: .8, delay: reducedMotion ? 0 : delay, ease: [.22, 1, .36, 1] as const },
+  });
 
   return (
-    <section
-      ref={containerRef}
-      className="relative overflow-hidden bg-transparent pt-28 pb-16 text-zinc-300 min-h-[100svh] flex items-center spotlight-card sm:pt-32 sm:pb-24"
-    >
-      {/* Background Canvas Particles */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 pointer-events-none z-0"
-      />
-
-      {/* Floating Ambient Aurora Glows */}
-      <div className="aurora-bg">
-        <div className="aurora-blob bg-blue-500/10 w-[450px] h-[450px] top-[10%] left-[5%]" />
-        <div className="aurora-blob bg-purple-500/5 w-[500px] h-[500px] bottom-[15%] right-[10%]" />
-      </div>
-
-      <div className="page-shell relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-8"
-        >
-          {/* Main Info Columns */}
-          <div className="space-y-5 sm:space-y-6 lg:col-span-8">
-            
-            {/* Availability Badge */}
-            <motion.div 
-              variants={itemVariants} 
-              className="inline-flex max-w-full items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/80 px-3 py-1.5 text-xs text-zinc-400 sm:px-3.5"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="font-semibold tracking-wide font-sans text-[9px] uppercase sm:text-[10px]">
-                Available for Product Engineering Roles
-              </span>
+    <section id="home" className="hero-section" aria-labelledby="hero-title">
+      <div className="shell">
+        <div className="hero-layout">
+          <div className="hero-copy">
+            <motion.p className="hero-role" {...entrance()}><span />AI engineer & full-stack developer</motion.p>
+            <motion.h1 id="hero-title" aria-label="Ashirwad Jha" {...entrance(.08)}><span className="hero-first-name" aria-hidden="true">𐌀𐌔𐋅𐌉𐌓Ꮤ𐌀𐌃</span><br /><span className="hero-surname">Jha<span className="name-dot">.</span><svg viewBox="0 0 240 24" aria-hidden="true"><motion.path d="M6 16 C58 5 141 5 231 10 M35 22 C111 13 168 14 208 17" fill="none" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" initial={reducedMotion ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: .75, delay: .6 }} /></svg></span></motion.h1>
+            <motion.p className="hero-lead" {...entrance(.17)}>I make complicated things<br /><em>feel a little simpler.</em></motion.p>
+            <motion.p className="hero-description" {...entrance(.25)}>From reading receipts with AI to keeping a fleet moving, I build the interfaces and systems that make a product work.</motion.p>
+            <motion.div className="hero-actions" {...entrance(.32)}>
+              <a className="button button-primary" href="#work">See my projects <ArrowDown size={17} /></a>
+              <a className="hero-contact-link" href={"mailto:" + links.email}>Get in touch <ArrowUpRight size={17} /></a>
             </motion.div>
-
-            {/* Huge Serif Headline */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-serif text-[clamp(2.35rem,12vw,4.75rem)] font-extrabold leading-[1.02] tracking-tight text-white sm:leading-[0.98]"
-            >
-              Ashirwad Jha
-              <span className="block mt-2 bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent font-sans text-[clamp(1.2rem,7vw,2.5rem)] font-light tracking-wide">
-                Full Stack Developer & AI Engineer
-              </span>
-            </motion.h1>
-
-            {/* Description lines */}
-            <div className="space-y-4 max-w-2xl pt-2">
-              <motion.p
-                variants={itemVariants}
-                className="text-base leading-snug text-zinc-200 font-sans sm:text-lg"
-              >
-                {hero.headline}
-              </motion.p>
-              <motion.p
-                variants={itemVariants}
-                className="text-sm leading-relaxed text-zinc-400 font-sans"
-              >
-                {hero.subheadline}
-              </motion.p>
-            </div>
-
-            {/* Action buttons CTAs */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col items-stretch gap-3 pt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 sm:pt-6"
-            >
-              <a
-                href="#work"
-                className="group flex tap-target items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-xs font-semibold text-black transition-all hover:bg-zinc-200 clickable-element sm:py-3.5"
-              >
-                <span>See Selected Work</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-
-              <a
-                href="#contact"
-                className="group flex tap-target items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-950 px-5 py-3 text-xs font-semibold text-zinc-300 transition-all hover:border-zinc-700 hover:text-white clickable-element sm:py-3.5"
-              >
-                <span>Start a Conversation</span>
-                <Mail className="h-4 w-4" />
-              </a>
-            </motion.div>
+            <motion.p className="hero-location" {...entrance(.4)}>Python <span>·</span> React <span>·</span> Gemini <span>·</span> Built from interface to API.</motion.p>
           </div>
-
-          {/* Socials / Secondary Column */}
-          <div className="flex flex-col justify-end lg:col-span-4 lg:items-end lg:pb-2">
-            <motion.div
-              variants={itemVariants}
-              className="w-full border-t border-zinc-900 pt-6 lg:max-w-[240px] lg:border-t-0 lg:pt-0 lg:text-right"
-            >
-              <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-semibold mb-4 font-sans">
-                Connect
-              </p>
-              <ul className="space-y-3.5">
-                <li>
-                  <a
-                    href={links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs text-zinc-400 transition-colors hover:text-white lg:justify-end clickable-element"
-                  >
-                    <GithubIcon className="h-4 w-4" />
-                    <span className="font-mono">GitHub</span>
-                    <span className="text-[9px] text-zinc-600">open</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={links.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs text-zinc-400 transition-colors hover:text-white lg:justify-end clickable-element"
-                  >
-                    <LinkedinIcon className="h-4 w-4 text-blue-400" />
-                    <span className="font-mono">LinkedIn</span>
-                    <span className="text-[9px] text-zinc-600">open</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`mailto:${links.email}`}
-                    className="flex items-center gap-2 text-xs text-zinc-400 transition-colors hover:text-white lg:justify-end clickable-element"
-                  >
-                    <Mail className="h-4 w-4 text-accent" />
-                    <span className="font-mono">Email</span>
-                    <span className="text-[9px] text-zinc-600">open</span>
-                  </a>
-                </li>
-              </ul>
-
-              {/* Cmd+K reminder */}
-              <div className="hidden lg:block mt-12 text-[10px] text-zinc-500 font-sans leading-relaxed">
-                Press <kbd className="rounded bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 font-mono text-[9px] text-zinc-400">Ctrl K</kbd> to launch the command menu.
-              </div>
-            </motion.div>
-          </div>
+          <motion.div className="hero-visual" {...entrance(.2)}><HeroWorkflow /></motion.div>
+        </div>
+        <motion.div className="hero-experience-strip" {...entrance(.43)}>
+          <p>Previously building at</p><div><span className="company-vyapar">vyapar<span>↗</span></span><span className="company-podtech">podtech<span>.</span></span><span className="company-onestop">1Stop<span> AI</span></span></div><a href="#experience">A little about my experience <ArrowUpRight size={14} /></a>
         </motion.div>
       </div>
     </section>
